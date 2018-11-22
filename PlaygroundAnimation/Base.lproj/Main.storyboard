@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fundo_etereo" translatesAutoresizingMaskIntoConstraints="NO" id="gkW-2g-Kr1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1uP-cd-FyB">
                                 <rect key="frame" x="62.5" y="-25" width="250" height="350"/>
                                 <constraints>
@@ -34,11 +31,15 @@
                                     <constraint firstAttribute="height" constant="210" id="PPa-PK-QmG"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-Ch-cLD">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fundo_etereo" translatesAutoresizingMaskIntoConstraints="NO" id="gkW-2g-Kr1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-Ch-cLD">
                                 <rect key="frame" x="62.5" y="-25" width="250" height="350"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JEZ-sf-8rf">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="350"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-Wp-Cqg">
                                         <rect key="frame" x="55" y="70" width="140" height="210"/>
@@ -60,15 +61,24 @@
                                     <constraint firstAttribute="bottom" secondItem="JEZ-sf-8rf" secondAttribute="bottom" id="puD-GP-yuU"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-mG-wk9">
+                                <rect key="frame" x="0.0" y="-5" width="375" height="355"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="355" id="Zeb-H8-2Q1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.16470588235294117" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1uP-cd-FyB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Akn-9z-Az1"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FXI-lq-eXa"/>
-                            <constraint firstItem="eGd-Ch-cLD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="IJ1-ID-7mq"/>
+                            <constraint firstItem="eGd-Ch-cLD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="IJ1-ID-7mq" userLabel="y"/>
+                            <constraint firstItem="vOc-mG-wk9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-25" id="M9e-Nj-xJe" userLabel="sparkles y"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Olu-wf-PSg"/>
                             <constraint firstItem="eGd-Ch-cLD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QYy-BP-rFV"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tba-6y-iID"/>
+                            <constraint firstItem="vOc-mG-wk9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bY9-j8-gyH"/>
+                            <constraint firstItem="vOc-mG-wk9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="csC-HF-ifn"/>
                             <constraint firstItem="1uP-cd-FyB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="nQn-pV-k65"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nS0-P3-dOj"/>
                             <constraint firstItem="qdk-YB-bfq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkx-ek-Wso"/>
@@ -77,8 +87,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundEther" destination="gkW-2g-Kr1" id="bCa-4v-ddb"/>
+                        <outlet property="containerSecondMomentY" destination="IJ1-ID-7mq" id="34C-zj-BBG"/>
                         <outlet property="ivCoverPrimary" destination="qdk-YB-bfq" id="FWN-8D-77k"/>
                         <outlet property="ivCoverPrimaryFire" destination="1uP-cd-FyB" id="ch3-tt-4cq"/>
+                        <outlet property="ivCoverSecundary" destination="xHr-Wp-Cqg" id="4SV-Pe-mk6"/>
+                        <outlet property="ivCoverSecundaryFire" destination="JEZ-sf-8rf" id="Zre-jq-SsK"/>
+                        <outlet property="ivSparklesLoop" destination="vOc-mG-wk9" id="yVa-mV-ZKt"/>
+                        <outlet property="sparklesY" destination="M9e-Nj-xJe" id="7zt-aJ-Z8y"/>
                         <outlet property="vContainerSecondMoment" destination="eGd-Ch-cLD" id="4eC-lx-4Ns"/>
                     </connections>
                 </viewController>
