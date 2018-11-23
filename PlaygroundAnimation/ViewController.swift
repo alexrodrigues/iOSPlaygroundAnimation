@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var ivSparklesLoop: UIImageView!
     @IBOutlet weak var ivLaunchSmoke: UIImageView!
     
+    @IBOutlet weak var ivArrow: UIImageView!
+    
     private var tapGestureIvPrimary: UITapGestureRecognizer!
     private var swipeGestureIvSecundary: UISwipeGestureRecognizer!
     
@@ -120,9 +122,18 @@ class ViewController: UIViewController {
         ivSparklesLoop.animationDuration = 1.5
         ivSparklesLoop.startAnimating()
         wobble()
+        arrowUpDown()
+        UIView.animate(withDuration: 0.5) {
+            self.ivArrow.alpha = 1.0
+        }
     }
     
     @objc func launchSmoke() {
+        
+        UIView.animate(withDuration: 0.25) {
+            self.ivArrow.alpha = 0.0
+        }
+        
         ivLaunchSmoke.alpha = 1.0
         ivLaunchSmoke.animationImages = launchSmokeArray
         ivLaunchSmoke.animationDuration = 1.5
@@ -144,6 +155,19 @@ class ViewController: UIViewController {
     }
     
     @objc func wobble() {
+    }
+    
+    func arrowUpDown() {
+        let midX = ivArrow.center.x
+        let midY = ivArrow.center.y
+        
+        let animationY = CABasicAnimation(keyPath: "position")
+        animationY.duration = 0.9
+        animationY.repeatCount = 99999999
+        animationY.autoreverses = true
+        animationY.fromValue = CGPoint(x: midX, y: midY - 10)
+        animationY.toValue = CGPoint(x: midX, y: midY + 10)
+        ivArrow.layer.add(animationY, forKey: "position")
     }
 }
 

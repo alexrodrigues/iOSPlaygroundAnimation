@@ -71,11 +71,19 @@
                                     <constraint firstAttribute="height" constant="355" id="Zeb-H8-2Q1"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seta" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-o0-MSP">
+                                <rect key="frame" x="149" y="84" width="77" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="1O7-RC-Y7v"/>
+                                    <constraint firstAttribute="width" constant="77" id="R8j-3L-KfG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.16470588235294117" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6d1-g9-lOQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0p2-Wt-gnN"/>
                             <constraint firstItem="6d1-g9-lOQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="30q-5z-RXh"/>
+                            <constraint firstItem="aVt-o0-MSP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="4Za-Ei-vdl"/>
                             <constraint firstItem="1uP-cd-FyB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Akn-9z-Az1"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FXI-lq-eXa"/>
                             <constraint firstItem="eGd-Ch-cLD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="IJ1-ID-7mq" userLabel="y"/>
@@ -87,6 +95,7 @@
                             <constraint firstItem="6d1-g9-lOQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="b0e-VW-1Ji"/>
                             <constraint firstItem="vOc-mG-wk9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bY9-j8-gyH"/>
                             <constraint firstItem="vOc-mG-wk9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="csC-HF-ifn"/>
+                            <constraint firstItem="aVt-o0-MSP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fvl-PE-lSz"/>
                             <constraint firstItem="1uP-cd-FyB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-25" id="nQn-pV-k65"/>
                             <constraint firstItem="gkW-2g-Kr1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nS0-P3-dOj"/>
                             <constraint firstItem="qdk-YB-bfq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkx-ek-Wso"/>
@@ -97,6 +106,7 @@
                     <connections>
                         <outlet property="backgroundEther" destination="gkW-2g-Kr1" id="bCa-4v-ddb"/>
                         <outlet property="containerSecondMomentY" destination="IJ1-ID-7mq" id="34C-zj-BBG"/>
+                        <outlet property="ivArrow" destination="aVt-o0-MSP" id="YC0-XW-bP4"/>
                         <outlet property="ivCoverPrimary" destination="qdk-YB-bfq" id="FWN-8D-77k"/>
                         <outlet property="ivCoverPrimaryFire" destination="1uP-cd-FyB" id="ch3-tt-4cq"/>
                         <outlet property="ivCoverSecundary" destination="xHr-Wp-Cqg" id="4SV-Pe-mk6"/>
@@ -115,5 +125,6 @@
     <resources>
         <image name="cover" width="500" height="750"/>
         <image name="fundo_etereo" width="800" height="800"/>
+        <image name="seta" width="293" height="307"/>
     </resources>
 </document>
