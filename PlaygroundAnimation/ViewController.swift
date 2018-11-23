@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     let sparklesLoopArray: [UIImage] = [UIImage(named: "faiscas_loop_00142")!, UIImage(named: "faiscas_loop_00145")!, UIImage(named: "faiscas_loop_00149")!,  UIImage(named: "faiscas_loop_00154")!, UIImage(named: "faiscas_loop_00158")!, UIImage(named: "faiscas_loop_00163")!, UIImage(named: "faiscas_loop_00167")!, UIImage(named: "faiscas_loop_00172")!, UIImage(named: "faiscas_loop_00175")!, UIImage(named: "faiscas_loop_00176")!, UIImage(named: "faiscas_loop_00179")!, UIImage(named: "faiscas_loop_00182")!, UIImage(named: "faiscas_loop_00184")!]
     
+    let launchSmokeArray: [UIImage] = [UIImage(named: "faiscas_saida_00184")!, UIImage(named: "faiscas_saida_00185")!, UIImage(named: "faiscas_saida_00186")!, UIImage(named: "faiscas_saida_00189")!, UIImage(named: "faiscas_saida_00191")!, UIImage(named: "faiscas_saida_00193")!, UIImage(named: "faiscas_saida_00195")!, UIImage(named: "faiscas_saida_00197")!, UIImage(named: "faiscas_saida_00199")!, UIImage(named: "faiscas_saida_00201")!, UIImage(named: "faiscas_saida_00203")!, UIImage(named: "faiscas_saida_00206")!, UIImage(named: "faiscas_saida_00210")!, UIImage(named: "faiscas_saida_00212")!, UIImage(named: "faiscas_saida_00213")!, UIImage(named: "faiscas_saida_00216")!, UIImage(named: "faiscas_saida_00217")!, UIImage(named: "faiscas_saida_00219")!, UIImage(named: "faiscas_saida_00220")!, UIImage(named: "faiscas_saida_00223")!, UIImage(named: "faiscas_saida_00224")!, UIImage(named: "faiscas_saida_00226")!, UIImage(named: "faiscas_saida_00227")!, UIImage(named: "faiscas_saida_00229")!, UIImage(named: "faiscas_saida_00230")!, UIImage(named: "faiscas_saida_00232")!, UIImage(named: "faiscas_saida_00233")!, UIImage(named: "faiscas_saida_00235")!, UIImage(named: "faiscas_saida_00236")!, UIImage(named: "faiscas_saida_00238")!, UIImage(named: "faiscas_saida_00239")!]
+    
     @IBOutlet weak var ivCoverPrimary: UIImageView!
     @IBOutlet weak var ivCoverPrimaryFire: UIImageView!
     
@@ -31,8 +33,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundEther: UIImageView!
     
     @IBOutlet weak var ivSparklesLoop: UIImageView!
+    @IBOutlet weak var ivLaunchSmoke: UIImageView!
     
     private var tapGestureIvPrimary: UITapGestureRecognizer!
+    private var swipeGestureIvSecundary: UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,13 @@ class ViewController: UIViewController {
         tapGestureIvPrimary.numberOfTapsRequired = 1
         ivCoverPrimary.isUserInteractionEnabled = true
         ivCoverPrimary.addGestureRecognizer(tapGestureIvPrimary)
+        
+        
+        swipeGestureIvSecundary = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.launchSmoke))
+        swipeGestureIvSecundary.direction = .up
+        ivCoverSecundary.isUserInteractionEnabled = true
+        vContainerSecondMoment.isUserInteractionEnabled = true
+        ivCoverSecundary.addGestureRecognizer(swipeGestureIvSecundary)
     }
     
     @objc func didTappedIvPrimary() {
@@ -108,6 +119,27 @@ class ViewController: UIViewController {
         ivSparklesLoop.animationImages = sparklesLoopArray
         ivSparklesLoop.animationDuration = 1.5
         ivSparklesLoop.startAnimating()
+    }
+    
+    @objc func launchSmoke() {
+        ivLaunchSmoke.alpha = 1.0
+        ivLaunchSmoke.animationImages = launchSmokeArray
+        ivLaunchSmoke.animationDuration = 1.5
+        ivLaunchSmoke.startAnimating()
+        
+        self.containerSecondMomentY.constant = -450
+        self.sparklesY.constant = -450
+        UIView.animate(withDuration: 0.6) {
+            self.view.layoutIfNeeded()
+        }
+        
+        self.perform(#selector(ViewController.hideLaunchSmoke), with: nil, afterDelay: 1.3)
+    }
+    
+    @objc func hideLaunchSmoke() {
+        UIView.animate(withDuration: 0.2) {
+            self.ivLaunchSmoke.alpha = 0.0
+        }
     }
 }
 
