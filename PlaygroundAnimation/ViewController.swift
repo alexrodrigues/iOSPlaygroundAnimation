@@ -119,6 +119,7 @@ class ViewController: UIViewController {
         ivSparklesLoop.animationImages = sparklesLoopArray
         ivSparklesLoop.animationDuration = 1.5
         ivSparklesLoop.startAnimating()
+        wobble()
     }
     
     @objc func launchSmoke() {
@@ -140,6 +141,9 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.2) {
             self.ivLaunchSmoke.alpha = 0.0
         }
+    }
+    
+    @objc func wobble() {
     }
 }
 
