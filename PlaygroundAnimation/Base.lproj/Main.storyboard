@@ -31,6 +31,12 @@
                                     <constraint firstAttribute="width" constant="140" id="42c-Je-mpt"/>
                                     <constraint firstAttribute="height" constant="210" id="PPa-PK-QmG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fundo_etereo" translatesAutoresizingMaskIntoConstraints="NO" id="gkW-2g-Kr1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -51,6 +57,12 @@
                                             <constraint firstAttribute="width" constant="140" id="3ua-AC-RZp"/>
                                             <constraint firstAttribute="height" constant="210" id="rw8-U5-Kyz"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

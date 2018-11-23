@@ -112,8 +112,8 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1.0, animations: {
             self.view.layoutIfNeeded()
         })
-        
-        self.perform(#selector(ViewController.startSparklesLoop), with: nil, afterDelay: 0.5)
+        wobble()
+        startSparklesLoop()
     }
     
     @objc func startSparklesLoop() {
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
         ivSparklesLoop.animationImages = sparklesLoopArray
         ivSparklesLoop.animationDuration = 1.5
         ivSparklesLoop.startAnimating()
-        wobble()
+        
         arrowUpDown()
         UIView.animate(withDuration: 0.5) {
             self.ivArrow.alpha = 1.0
@@ -155,6 +155,18 @@ class ViewController: UIViewController {
     }
     
     @objc func wobble() {
+        let duration: TimeInterval = 0.05
+        let shakeCount: Float = 9999999
+        let xValue: CGFloat = 12
+        let yValue: CGFloat = 0
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = duration
+        animation.repeatCount = shakeCount
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: ivCoverSecundary.center.x - xValue, y: ivCoverSecundary.center.y - yValue))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: ivCoverSecundary.center.x + xValue, y: ivCoverSecundary.center.y - yValue))
+        ivCoverSecundary.layer.add(animation, forKey: "shake")
+        ivCoverSecundaryFire.layer.add(animation, forKey: "shake")
     }
     
     func arrowUpDown() {
