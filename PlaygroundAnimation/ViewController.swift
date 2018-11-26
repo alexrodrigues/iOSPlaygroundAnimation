@@ -155,18 +155,23 @@ class ViewController: UIViewController {
     }
     
     @objc func wobble() {
-        let duration: TimeInterval = 0.05
-        let shakeCount: Float = 9999999
-        let xValue: CGFloat = 12
-        let yValue: CGFloat = 0
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = duration
-        animation.repeatCount = shakeCount
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: ivCoverSecundary.center.x - xValue, y: ivCoverSecundary.center.y - yValue))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: ivCoverSecundary.center.x + xValue, y: ivCoverSecundary.center.y - yValue))
-        ivCoverSecundary.layer.add(animation, forKey: "shake")
-        ivCoverSecundaryFire.layer.add(animation, forKey: "shake")
+        let midX = ivCoverSecundary.center.x
+        let midY = ivCoverSecundary.center.y
+        
+        let animationY = CABasicAnimation()
+        animationY.keyPath = "position"
+        animationY.duration = 0.11
+        animationY.repeatCount = HUGE
+        animationY.autoreverses = true
+        animationY.fromValue = CGPoint(x: midX + 3, y: midY - 6)
+        animationY.toValue = CGPoint(x: midX - 3, y: midY + 6)
+        
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.repeatCount = HUGE
+        groupAnimation.autoreverses = true
+        groupAnimation.animations = [animationY]
+        ivCoverSecundary.layer.add(groupAnimation, forKey: "position")
+        ivCoverSecundaryFire.layer.add(groupAnimation, forKey: "position")
     }
     
     func arrowUpDown() {
