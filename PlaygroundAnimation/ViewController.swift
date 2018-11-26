@@ -112,8 +112,8 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1.0, animations: {
             self.view.layoutIfNeeded()
         })
-        wobble()
-        startSparklesLoop()
+        self.perform(#selector(ViewController.wobble), with: nil, afterDelay: 0.9)
+        self.perform(#selector(ViewController.startSparklesLoop), with: nil, afterDelay: 0.9)
     }
     
     @objc func startSparklesLoop() {
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
         
         self.containerSecondMomentY.constant = -450
         self.sparklesY.constant = -450
-        UIView.animate(withDuration: 0.6) {
+        UIView.animate(withDuration: 1.1) {
             self.view.layoutIfNeeded()
         }
         
