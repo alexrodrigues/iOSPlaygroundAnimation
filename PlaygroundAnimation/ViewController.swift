@@ -129,7 +129,7 @@ class ViewController: UIViewController {
     }
     
     @objc func launchSmoke() {
-        
+        hideSparkles()
         UIView.animate(withDuration: 0.25) {
             self.ivArrow.alpha = 0.0
         }
@@ -180,6 +180,17 @@ class ViewController: UIViewController {
         animationY.fromValue = CGPoint(x: midX, y: midY - 10)
         animationY.toValue = CGPoint(x: midX, y: midY + 10)
         ivArrow.layer.add(animationY, forKey: "position")
+    }
+    
+    func hideSparkles() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.ivSparklesLoop.alpha = 0.0
+        }) { (finished) in
+            if (finished) {
+                self.ivSparklesLoop.stopAnimating()
+            }
+        }
+        
     }
 }
 
